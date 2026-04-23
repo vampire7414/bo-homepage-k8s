@@ -10,15 +10,14 @@ data:
     color: slate
     background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
     cardBlur: md
+    statusStyle: dot
     layout:
       今日看板:
         columns: 4
-      公司系統:
-        columns: 3
-      # 這裡的名稱必須與 services.yaml 裡的群組完全一致
-      行事曆: 
+      # 關鍵：定義一個 2 欄位的區域，讓系統按鈕與月曆並排
+      主排版區: 
         style: row
-        columns: 1
+        columns: 2
       常用連結:
         columns: 2
 
@@ -31,20 +30,23 @@ data:
         hour12: true
 
   services.yaml: |
+    # 這兩個群組會因為「主排版區」的設定而左右並列
     - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
+            description: "考勤與請假"
         - 密碼修改:
             icon: mdi-shield-key-outline
             href: http://password.eagle.corp/iisadmpwd
+            description: "帳號安全管理"
         - VPN下載:
             icon: mdi-laptop
             href: "http://vpn.eagle.corp"
+            description: "遠端辦公工具"
 
-    - 行事曆: # 對應 layout 名稱
-        - 月曆組件: # 給一個簡單的名字
-            # 注意：widget 必須跟 icon/href 同級，且下方 type 不要再多縮排
+    - 行事曆:
+        - 月曆組件:
             widget:
               type: calendar
               view: monthly
@@ -59,6 +61,9 @@ data:
         - 歡迎詞:
             icon: mdi-pine-tree
             description: "☕ 深呼吸，放鬆心情開始今天的工作。"
+        - 今日小提醒:
+            icon: mdi-alert-circle-check-outline
+            description: "💖 週五下午機房維護，下班前記得儲存文件。"
 
   bookmarks.yaml: |
     - 常用連結:
