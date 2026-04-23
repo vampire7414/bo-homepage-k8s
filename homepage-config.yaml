@@ -12,14 +12,14 @@ data:
     cardBlur: md
     statusStyle: dot
     layout:
-      # 第一層：招呼語與優雅日期
+      # 第一層：寬敞的頂部招呼區
       頂部資訊:
-        columns: 4
-      # 第二層：主要的系統操作與輔助月曆 (3:1 的黃金比例)
+        columns: 1
+      # 第二層：核心工作區（透過 style: row 強制左右對等分配，或微調 columns）
       主工作區: 
         style: row
-        columns: 4 # 設定為 4 欄，方便分配比例
-      # 第三層：底部次要連結
+        columns: 5 # 增加總欄數，讓分配更精細
+      # 第三層：底部頁尾（放置 Google 等次要連結）
       頁尾區:
         columns: 1
 
@@ -31,13 +31,12 @@ data:
     - datetime:
         style: clock
         hour12: true
-        # 修正日期格式為 Apr 23, 2026
         format:
-          dateStyle: medium 
+          dateStyle: medium # 顯示為 Apr 23, 2026
 
   services.yaml: |
-    # 透過佈局分配，讓公司系統佔據左側 3/4 空間，成為主體
-    - 公司系統:
+    # 在 5 欄佈局中，給予公司系統與公告更大的空間，將月曆壓縮在正中央或側邊
+    - 公司系統: # 佔據 2/5 空間
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
@@ -51,8 +50,7 @@ data:
             href: "http://vpn.eagle.corp"
             description: "遠端辦公工具"
 
-    # 月曆縮小至右側 1/4，回歸輔助地位
-    - 行事曆:
+    - 行事曆: # 佔據 1/5 空間，這會讓它縮小到最精緻的比例
         - 月曆組件:
             widget:
               type: calendar
@@ -64,17 +62,16 @@ data:
                   name: "台灣節慶"
                   color: "pink"
 
-    - 重要公告:
+    - 重要公告: # 佔據 2/5 空間
         - 歡迎詞:
             icon: mdi-pine-tree
             description: "☕ 深呼吸，放鬆心情開始今天的工作。"
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline
-            description: "💖 週五下午機房維護，下班前記得儲存文件。"
+            description: "💖 週五下午機房維護。"
 
   bookmarks.yaml: |
-    # 將常用連結移到底部
-    - 常用連結:
+    - 常用連結: # 獨立在頁尾區，寬度會自動撐滿但因為在最下面，不會干擾視覺重心
         - Google:
             - icon: si-google
               href: https://google.com
