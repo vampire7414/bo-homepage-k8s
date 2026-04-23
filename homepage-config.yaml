@@ -12,13 +12,14 @@ data:
     cardBlur: md
     statusStyle: dot
     layout:
+      # 順序決定位置：由上而下排列
       頂部資訊:
         columns: 1
       主工作區: 
-        style: row
-        columns: 12 # 改用 12 欄位制（類似網頁設計的 Bootstrap 概念）
-      底部區:
-        columns: 4  # 讓 Google 連結縮小，不要撐滿整行
+        # 移除 style: row，讓系統自動根據 columns 比例縮放
+        columns: 3 
+      頁尾區:
+        columns: 4 # 這裡設定較多 columns，會讓裡面的 Google 變小
 
   widgets.yaml: |
     - greeting:
@@ -31,8 +32,14 @@ data:
           dateStyle: medium 
 
   services.yaml: |
-    # 在 12 欄制中，我們手動分配比例
-    - 公司系統: # 這裡我們設定讓它在 layout 裡佔據較多位置
+    # 對應「頂部資訊」
+    - 頂部資訊:
+        - widget:
+            type: datetime
+            style: clock
+
+    # 對應「主工作區」
+    - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
@@ -43,7 +50,7 @@ data:
             icon: mdi-laptop
             href: "http://vpn.eagle.corp"
 
-    - 行事曆: # 將月曆放在這個群組
+    - 行事曆:
         - 月曆組件:
             widget:
               type: calendar
@@ -58,16 +65,16 @@ data:
     - 重要公告: 
         - 歡迎詞:
             icon: mdi-pine-tree
-            description: "☕ 深呼吸，放鬆心情開始今天的工作。"
+            description: "☕ 深呼吸..."
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline
-            description: "💖 週五下午機房維護。"
+            description: "💖 機房維護。"
 
-    - 底部區: # 這是新增的群組，專門放不重要的東西
+    # 對應「頁尾區」
+    - 頁尾區: 
         - Google:
             icon: si-google
             href: https://google.com
             description: "外部搜尋"
 
-  bookmarks.yaml: |
-    # 這裡可以暫時留空，或把沒用的連結刪掉，統一用 services 管理美觀度
+  bookmarks.yaml: "" # 保持清空，避免干擾佈局
