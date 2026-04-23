@@ -15,9 +15,9 @@ data:
         columns: 4
       公司系統:
         columns: 3
-      # 對應 services.yaml 中的獨立群組名
-      行事曆區塊: 
-        style: row     # 讓月曆橫向展開
+      # 這裡的名稱必須與 services.yaml 裡的群組完全一致
+      行事曆: 
+        style: row
         columns: 1
       常用連結:
         columns: 2
@@ -31,19 +31,6 @@ data:
         hour12: true
 
   services.yaml: |
-    - 行事曆區塊:        # 1. 定義一個群組
-        - 點我打開月曆:  # 2. 定義一個服務項目 (這是月曆的家)
-            icon: mdi-calendar-month
-            widget:      # 3. 在服務項目內定義 widget
-              type: calendar
-              view: monthly
-              firstDayInWeek: monday
-              integrations:
-                - type: ical
-                  url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
-                  name: "台灣節慶"
-                  color: "pink"
-
     - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
@@ -55,7 +42,26 @@ data:
             icon: mdi-laptop
             href: "http://vpn.eagle.corp"
 
+    - 行事曆: # 對應 layout 名稱
+        - 月曆組件: # 給一個簡單的名字
+            # 注意：widget 必須跟 icon/href 同級，且下方 type 不要再多縮排
+            widget:
+              type: calendar
+              view: monthly
+              firstDayInWeek: monday
+              integrations:
+                - type: ical
+                  url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
+                  name: "台灣節慶"
+                  color: "pink"
+
     - 重要公告:
         - 歡迎詞:
             icon: mdi-pine-tree
             description: "☕ 深呼吸，放鬆心情開始今天的工作。"
+
+  bookmarks.yaml: |
+    - 常用連結:
+        - Google:
+            - icon: si-google
+              href: https://google.com
