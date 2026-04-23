@@ -8,65 +8,57 @@ data:
     title: 🌿 內網連結中心
     theme: dark
     color: slate
-    # 使用暖咖啡漸層背景，營造舒適的視覺感
     background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
     cardBlur: md
-    statusStyle: dot
     layout:
-      今日看板: # 放置招呼語與大時鐘
+      今日看板:
         columns: 4
-      行事曆: # 讓月曆組件擁有獨立寬敞的區域
-        columns: 1
       公司系統:
         columns: 3
+      # 關鍵：這裡改為對應 services.yaml 裡的群組名稱
+      行事曆看板: 
+        columns: 1
       常用連結:
         columns: 2
 
   widgets.yaml: |
-    # 1. 頂部招呼語
     - greeting:
         text: "哈囉！今天也是美好的一天。"
         help: true
-
-    # 2. 視覺中心：大時鐘
     - datetime:
         style: clock
         hour12: true
 
-    # 3. 嚴格對齊官方範例的 Calendar 組件 (解決 Missing calendar 問題)
-    - calendar:
-      firstDayInWeek: monday   # 官方屬性名稱
-      view: monthly            # 呈現你想要的整月格子視圖
-      maxEvents: 10
-      showTime: true
-      integrations:            # 官方規範：資料來源必須放在 integrations 之下
-        - type: ical
-          url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
-          name: "台灣節慶"
-          color: "pink"
-
   services.yaml: |
+    - 公司系統:
+        - 人事系統:
+            icon: mdi-account-box-multiple
+            href: https://portal.nueip.com/login
+        - 密碼修改:
+            icon: mdi-shield-key-outline
+            href: http://password.eagle.corp/iisadmpwd
+        - VPN下載:
+            icon: mdi-laptop
+            href: "http://vpn.eagle.corp"
+
+    - 行事曆看板: # 這裡採用你查到的 Service Widget 寫法
+        - widget:
+            type: calendar
+            view: monthly
+            firstDayInWeek: monday
+            integrations:
+              - type: ical
+                url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
+                name: "台灣節慶"
+                color: "pink"
+
     - 重要公告:
         - 歡迎詞:
             icon: mdi-pine-tree
             description: "☕ 深呼吸，放鬆心情開始今天的工作。"
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline
-            description: "💖 週五下午機房維護，下班前記得儲存文件。"
-
-    - 公司系統:
-        - 人事系統:
-            icon: mdi-account-box-multiple
-            href: https://portal.nueip.com/login
-            description: "考勤與請假"
-        - 密碼修改:
-            icon: mdi-shield-key-outline
-            href: http://password.eagle.corp/iisadmpwd
-            description: "帳號安全管理"
-        - VPN下載:
-            icon: mdi-laptop
-            href: "http://vpn.eagle.corp"
-            description: "遠端辦公工具"
+            description: "💖 週五下午機房維護。"
 
   bookmarks.yaml: |
     - 常用連結:
