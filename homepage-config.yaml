@@ -10,16 +10,17 @@ data:
     color: slate
     background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
     cardBlur: md
-    # 全域設定：確保所有卡片等高，視覺上才不會亂跳
-    useEqualHeights: true 
     layout:
-      # 第一層：招呼語與時間 (由上而下渲染)
-      頂部看板:
+      # 1. 第一排：招呼語
+      頂部資訊:
         columns: 1
-      # 第二層：核心佈局 (將系統、月曆、公告並排)
-      主視角區: 
+      # 2. 第二排：主體 (系統 2/4, 月曆 1/4, 公告 1/4)
+      核心看板區: 
         style: row
-        columns: 3 # 強制分成三等份，月曆就不會霸佔螢幕
+        columns: 4
+      # 3. 第三排：最不重要的 Google 連結 (縮小至左下角)
+      頁尾工具:
+        columns: 4
 
   widgets.yaml: |
     - greeting:
@@ -32,7 +33,13 @@ data:
           dateStyle: medium # 顯示為 Apr 23, 2026
 
   services.yaml: |
-    - 公司系統: # 佔據 1/3
+    # --- 第一排 ---
+    - 頂部資訊:
+        - widget:
+            type: greeting
+
+    # --- 第二排 (主體區) ---
+    - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
@@ -43,28 +50,31 @@ data:
             icon: mdi-laptop
             href: "http://vpn.eagle.corp"
 
-    - 行事曆: # 佔據 1/3，這時月曆的比例會變得很完美
-        - widget:
-            type: calendar
-            view: monthly
-            firstDayInWeek: monday
-            integrations:
-              - type: ical
-                url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
-                name: "台灣節慶"
-                color: "pink"
+    - 行事曆:
+        - 月曆組件:
+            widget:
+              type: calendar
+              view: monthly
+              firstDayInWeek: monday
+              integrations:
+                - type: ical
+                  url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
+                  name: "台灣節慶"
+                  color: "pink"
 
-    - 重要公告與連結: # 佔據 1/3
+    - 重要公告: 
         - 歡迎詞:
             icon: mdi-pine-tree
             description: "☕ 深呼吸，放鬆心情。"
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline
-            description: "💖 機房維護。"
-        # 把 Google 放在這，它就變成一個小圖示，不再是醜陋的長條
+            description: "💖 週五機房維護。"
+
+    # --- 第三排 (頁尾) ---
+    - 頁尾工具:
         - Google:
             icon: si-google
             href: https://google.com
             description: "外部搜尋"
 
-  bookmarks.yaml: "" # 這裡留空，確保視覺上不會有重複的導航列
+  bookmarks.yaml: "" # 這裡留空，完全靠 services.yaml 控制位置
