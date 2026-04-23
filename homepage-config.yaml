@@ -4,56 +4,66 @@ metadata:
   name: homepage-config
   namespace: homepage
 data:
+
   settings.yaml: |
     title: 🌿 內網連結中心
     theme: dark
     color: slate
+
     background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
     cardBlur: md
     statusStyle: dot
+
     layout:
-      # 第一層：招呼語與優雅日期
       頂部資訊:
         columns: 4
-      # 第二層：主要的系統操作與輔助月曆 (3:1 的黃金比例)
-      主工作區: 
-        style: row
-        columns: 4 # 設定為 4 欄，方便分配比例
-      # 第三層：底部次要連結
-      頁尾區:
+
+      公司系統:
+        columns: 3
+
+      行事曆:
         columns: 1
+
+      重要公告:
+        columns: 2
+
+      常用連結:
+        columns: 1
+
 
   widgets.yaml: |
     - greeting:
-        text: "哈囉！今天也是美好的一天。"
-        help: true
+        text: "哈囉！今天也是美好的一天 ☕"
+        help: false
 
     - datetime:
         style: clock
         hour12: true
-        # 修正日期格式為 Apr 23, 2026
+
+    - datetime:
         format:
-          dateStyle: medium 
+          dateStyle: medium
+
 
   services.yaml: |
-    # 透過佈局分配，讓公司系統佔據左側 3/4 空間，成為主體
     - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
-            description: "考勤與請假"
+            description: "考勤 / 請假"
+
         - 密碼修改:
             icon: mdi-shield-key-outline
             href: http://password.eagle.corp/iisadmpwd
-            description: "帳號安全管理"
+            description: "帳號安全"
+
         - VPN下載:
             icon: mdi-laptop
-            href: "http://vpn.eagle.corp"
-            description: "遠端辦公工具"
+            href: http://vpn.eagle.corp
+            description: "遠端辦公"
 
-    # 月曆縮小至右側 1/4，回歸輔助地位
     - 行事曆:
-        - 月曆組件:
+        - 本月行事:
             widget:
               type: calendar
               view: monthly
@@ -61,20 +71,19 @@ data:
               integrations:
                 - type: ical
                   url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
-                  name: "台灣節慶"
-                  color: "pink"
+                  name: 台灣節慶
+                  color: pink
 
     - 重要公告:
         - 歡迎詞:
             icon: mdi-pine-tree
-            description: "☕ 深呼吸，放鬆心情開始今天的工作。"
-        - 今日小提醒:
-            icon: mdi-alert-circle-check-outline
-            description: "💖 週五下午機房維護，下班前記得儲存文件。"
+            description: "☕ 放鬆心情，開始今天的工作"
 
-  bookmarks.yaml: |
-    # 將常用連結移到底部
+        - 今日提醒:
+            icon: mdi-alert-circle-check-outline
+            description: "💖 週五機房維護，請提前儲存資料"
+
     - 常用連結:
         - Google:
-            - icon: si-google
-              href: https://google.com
+            icon: si-google
+            href: https://google.com
