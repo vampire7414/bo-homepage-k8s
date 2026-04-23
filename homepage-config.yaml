@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+  namespace: homepage
+data:
+  settings.yaml: |
+    title: 🌿 博悅內網入口
+    theme: dark
+    color: slate
+    # 使用「莫蘭迪暖咖啡」色調，比深藍更柔和，像在咖啡廳工作的感覺
+    background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
+    cardBlur: md
+    statusStyle: dot
+    # 改為網格佈局，讓畫面更有層次感
+    layout:
+      重要公告:
+        style: list
+        columns: 1
+      公司系統:
+        columns: 3 # 讓系統按鈕橫向排列，看起來更開闊
+      常用連結:
+        columns: 2
+
+  widgets.yaml: |
+    # 1. 圓形大時鐘 (獨立放在最上方，成為視覺焦點)
+    - datetime:
+        style: clock
+        hour12: true
+    
+    # 2. 移除會報錯的天氣，改用溫馨的日期顯示
+    - datetime:
+        format:
+          dateStyle: full
+
+  services.yaml: |
+    - 重要公告:
+        - 歡迎詞:
+            icon: mdi-pine-tree # 換成樹木圖示，增加自然感
+            description: "☕ 深呼吸，放鬆心情開始今天的工作。"
+        - 今日小提醒:
+            icon: mdi-alert-circle-check-outline
+            description: "💖 週五下午機房維護，下班前記得儲存文件。"
+
+    - 公司系統:
+        - 人事系統:
+            icon: mdi-account-box-multiple
+            href: https://portal.nueip.com/login
+            description: "考勤與請假"
+        - 密碼修改:
+            icon: mdi-shield-key-outline
+            href: http://password.eagle.corp/iisadmpwd
+            description: "帳號安全管理"
+        - VPN下載:
+            icon: mdi-laptop
+            href: "http://vpn.eagle.corp"
+            description: "遠端辦公工具"
+
+  bookmarks.yaml: |
+    - 常用連結:
+        - Google:
+            - icon: si-google
+              href: https://google.com

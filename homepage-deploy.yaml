@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage
+  namespace: homepage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homepage
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      containers:
+      - name: homepage
+        image: ghcr.io/gethomepage/homepage:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+        - name: HOMEPAGE_ALLOWED_HOSTS
+          value: "*"
+        volumeMounts:
+        # 使用 subPath 將檔案逐一映射到正確路徑，避免覆蓋整個 /app/config 目錄
+        - name: config-volume
+          mountPath: /app/config/settings.yaml
+          subPath: settings.yaml
+        - name: config-volume
+          mountPath: /app/config/services.yaml
+          subPath: services.yaml
+        - name: config-volume
+          mountPath: /app/config/widgets.yaml
+          subPath: widgets.yaml
+        - name: config-volume
+          mountPath: /app/config/bookmarks.yaml
+          subPath: bookmarks.yaml
+        - name: config-volume
+          mountPath: /app/config/custom.yaml
+          subPath: custom.yaml
+        # 額外掛載 logs 目錄確保程式運作正常
+        - name: logs-volume
+          mountPath: /app/config/logs
+      volumes:
+      - name: config-volume
+        configMap:
+          name: homepage-config
+      - name: logs-volume
+        emptyDir: {}
