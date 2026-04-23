@@ -34,7 +34,7 @@ data:
         hour12: true
 
     # 3. 嚴格對齊官方範例的 Calendar 組件 (解決 Missing calendar 問題)
-    - type: calendar
+    - calendar:
       firstDayInWeek: monday   # 官方屬性名稱
       view: monthly            # 呈現你想要的整月格子視圖
       maxEvents: 10
