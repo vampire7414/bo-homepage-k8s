@@ -12,44 +12,42 @@ data:
     cardBlur: md
     statusStyle: dot
     layout:
-      # 順序決定位置：由上而下排列
+      # 1. 頂部招呼 (佔據全寬)
       頂部資訊:
         columns: 1
+      # 2. 核心區 (將系統、月曆、公告平分為 3 欄)
       主工作區: 
-        # 移除 style: row，讓系統自動根據 columns 比例縮放
-        columns: 3 
-      頁尾區:
-        columns: 4 # 這裡設定較多 columns，會讓裡面的 Google 變小
+        style: row
+        columns: 3
 
   widgets.yaml: |
     - greeting:
         text: "哈囉！今天也是美好的一天。"
         help: true
+
     - datetime:
         style: clock
         hour12: true
         format:
-          dateStyle: medium 
+          dateStyle: medium # 確保日期顯示為 Apr 23, 2026
 
   services.yaml: |
-    # 對應「頂部資訊」
-    - 頂部資訊:
-        - widget:
-            type: datetime
-            style: clock
-
-    # 對應「主工作區」
+    # 公司系統 (左欄)
     - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
+            description: "考勤與請假"
         - 密碼修改:
             icon: mdi-shield-key-outline
             href: http://password.eagle.corp/iisadmpwd
+            description: "帳號安全管理"
         - VPN下載:
             icon: mdi-laptop
             href: "http://vpn.eagle.corp"
+            description: "遠端辦公工具"
 
+    # 行事曆 (中欄 - 輔助地位)
     - 行事曆:
         - 月曆組件:
             widget:
@@ -62,19 +60,18 @@ data:
                   name: "台灣節慶"
                   color: "pink"
 
+    # 重要公告與工具連結 (右欄)
     - 重要公告: 
         - 歡迎詞:
             icon: mdi-pine-tree
-            description: "☕ 深呼吸..."
+            description: "☕ 深呼吸，放鬆心情開始今天的工作。"
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline
-            description: "💖 機房維護。"
-
-    # 對應「頁尾區」
-    - 頁尾區: 
-        - Google:
+            description: "💖 週五下午機房維護。"
+        # 巧妙地將 Google 放在這裡，讓它變成側邊欄的一個精緻按鈕，不再醜陋
+        - Google 搜尋:
             icon: si-google
             href: https://google.com
-            description: "外部搜尋"
+            description: "外部搜尋工具"
 
-  bookmarks.yaml: "" # 保持清空，避免干擾佈局
+  bookmarks.yaml: "" # 徹底清空，不再使用
