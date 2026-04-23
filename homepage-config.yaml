@@ -12,45 +12,38 @@ data:
     cardBlur: md
     statusStyle: dot
     layout:
-      # 第一層：寬敞的頂部招呼區
       頂部資訊:
         columns: 1
-      # 第二層：核心工作區（透過 style: row 強制左右對等分配，或微調 columns）
       主工作區: 
         style: row
-        columns: 5 # 增加總欄數，讓分配更精細
-      # 第三層：底部頁尾（放置 Google 等次要連結）
-      頁尾區:
-        columns: 1
+        columns: 12 # 改用 12 欄位制（類似網頁設計的 Bootstrap 概念）
+      底部區:
+        columns: 4  # 讓 Google 連結縮小，不要撐滿整行
 
   widgets.yaml: |
     - greeting:
         text: "哈囉！今天也是美好的一天。"
         help: true
-
     - datetime:
         style: clock
         hour12: true
         format:
-          dateStyle: medium # 顯示為 Apr 23, 2026
+          dateStyle: medium 
 
   services.yaml: |
-    # 在 5 欄佈局中，給予公司系統與公告更大的空間，將月曆壓縮在正中央或側邊
-    - 公司系統: # 佔據 2/5 空間
+    # 在 12 欄制中，我們手動分配比例
+    - 公司系統: # 這裡我們設定讓它在 layout 裡佔據較多位置
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
-            description: "考勤與請假"
         - 密碼修改:
             icon: mdi-shield-key-outline
             href: http://password.eagle.corp/iisadmpwd
-            description: "帳號安全管理"
         - VPN下載:
             icon: mdi-laptop
             href: "http://vpn.eagle.corp"
-            description: "遠端辦公工具"
 
-    - 行事曆: # 佔據 1/5 空間，這會讓它縮小到最精緻的比例
+    - 行事曆: # 將月曆放在這個群組
         - 月曆組件:
             widget:
               type: calendar
@@ -62,7 +55,7 @@ data:
                   name: "台灣節慶"
                   color: "pink"
 
-    - 重要公告: # 佔據 2/5 空間
+    - 重要公告: 
         - 歡迎詞:
             icon: mdi-pine-tree
             description: "☕ 深呼吸，放鬆心情開始今天的工作。"
@@ -70,8 +63,11 @@ data:
             icon: mdi-alert-circle-check-outline
             description: "💖 週五下午機房維護。"
 
-  bookmarks.yaml: |
-    - 常用連結: # 獨立在頁尾區，寬度會自動撐滿但因為在最下面，不會干擾視覺重心
+    - 底部區: # 這是新增的群組，專門放不重要的東西
         - Google:
-            - icon: si-google
-              href: https://google.com
+            icon: si-google
+            href: https://google.com
+            description: "外部搜尋"
+
+  bookmarks.yaml: |
+    # 這裡可以暫時留空，或把沒用的連結刪掉，統一用 services 管理美觀度
