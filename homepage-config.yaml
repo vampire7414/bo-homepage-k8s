@@ -5,38 +5,50 @@ metadata:
   namespace: homepage
 data:
   settings.yaml: |
-    title: 🌿 博悅內網入口
+    title: 🌿 內網連結中心
     theme: dark
     color: slate
-    # 使用「莫蘭迪暖咖啡」色調，比深藍更柔和，像在咖啡廳工作的感覺
     background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
     cardBlur: md
     statusStyle: dot
-    # 改為網格佈局，讓畫面更有層次感
     layout:
-      重要公告:
-        style: list
+      今日看板: # 放置招呼語與大時鐘
+        columns: 4
+      行事曆: # 給月曆一個寬敞的獨立空間
         columns: 1
       公司系統:
-        columns: 3 # 讓系統按鈕橫向排列，看起來更開闊
+        columns: 3
       常用連結:
         columns: 2
 
   widgets.yaml: |
-    # 1. 圓形大時鐘 (獨立放在最上方，成為視覺焦點)
+    # 1. 加入親切招呼語，增加趣味性
+    - greeting:
+        text: "哈囉！今天也是美好的一天。"
+        help: true
+
+    # 2. 視覺中心：大時鐘
     - datetime:
         style: clock
         hour12: true
-    
-    # 2. 移除會報錯的天氣，改用溫馨的日期顯示
-    - datetime:
-        format:
-          dateStyle: full
+
+    # 3. 月分月曆組件 (仿照你上傳的參考圖)
+    - calendar:
+        firstDay: 1          # 星期一為第一天
+        view: monthly        # 關鍵！呈現整個月的格子
+        limit: 10
+        showAge: true
+        # 加入台灣國定假日，讓月曆看起來更豐富有色塊
+        providers:
+          - ical:
+              url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
+              name: "台灣節慶"
+              color: "pink"
 
   services.yaml: |
     - 重要公告:
         - 歡迎詞:
-            icon: mdi-pine-tree # 換成樹木圖示，增加自然感
+            icon: mdi-pine-tree
             description: "☕ 深呼吸，放鬆心情開始今天的工作。"
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline

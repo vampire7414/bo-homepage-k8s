@@ -10,6 +10,8 @@ spec:
       app: homepage
   template:
     metadata:
+      annotations:
+        config-hash: "v2" # 只要這行有變，ArgoCD 同步後就會自動重啟 Pod
       labels:
         app: homepage
     spec:
