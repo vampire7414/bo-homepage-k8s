@@ -33,18 +33,17 @@ data:
         style: clock
         hour12: true
 
-    # 3. 修正後的月曆組件
-    - calendar:
-        type: calendar
-        view: monthly         # 呈現你想要的整月格子視圖
-        firstDayInWeek: monday
-        maxEvents: 10
-        showTime: true
-        integrations:         # 官方規範：iCal 必須放在 integrations 之下
-          - type: ical
-            url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
-            name: "台灣節慶"
-            color: "pink"
+    # 3. 嚴格對齊官方範例的 Calendar 組件 (解決 Missing calendar 問題)
+    - type: calendar
+      firstDayInWeek: monday   # 官方屬性名稱
+      view: monthly            # 呈現你想要的整月格子視圖
+      maxEvents: 10
+      showTime: true
+      integrations:            # 官方規範：資料來源必須放在 integrations 之下
+        - type: ical
+          url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
+          name: "台灣節慶"
+          color: "pink"
 
   services.yaml: |
     - 重要公告:
