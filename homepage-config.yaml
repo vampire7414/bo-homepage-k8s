@@ -12,25 +12,31 @@ data:
     cardBlur: md
     statusStyle: dot
     layout:
-      今日看板:
+      # 第一層：招呼語與優雅日期
+      頂部資訊:
         columns: 4
-      # 關鍵：定義一個 2 欄位的區域，讓系統按鈕與月曆並排
-      主排版區: 
+      # 第二層：主要的系統操作與輔助月曆 (3:1 的黃金比例)
+      主工作區: 
         style: row
-        columns: 2
-      常用連結:
-        columns: 2
+        columns: 4 # 設定為 4 欄，方便分配比例
+      # 第三層：底部次要連結
+      頁尾區:
+        columns: 1
 
   widgets.yaml: |
     - greeting:
         text: "哈囉！今天也是美好的一天。"
         help: true
+
     - datetime:
         style: clock
         hour12: true
+        # 修正日期格式為 Apr 23, 2026
+        format:
+          dateStyle: medium 
 
   services.yaml: |
-    # 這兩個群組會因為「主排版區」的設定而左右並列
+    # 透過佈局分配，讓公司系統佔據左側 3/4 空間，成為主體
     - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
@@ -45,6 +51,7 @@ data:
             href: "http://vpn.eagle.corp"
             description: "遠端辦公工具"
 
+    # 月曆縮小至右側 1/4，回歸輔助地位
     - 行事曆:
         - 月曆組件:
             widget:
@@ -66,6 +73,7 @@ data:
             description: "💖 週五下午機房維護，下班前記得儲存文件。"
 
   bookmarks.yaml: |
+    # 將常用連結移到底部
     - 常用連結:
         - Google:
             - icon: si-google
