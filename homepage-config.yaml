@@ -94,11 +94,11 @@ data:
             icon: si-google
             href: https://www.google.com
         - Uber Eats:
-            icon: mdi-food-delivery
+            icon: si-ubereats
             href: https://www.ubereats.com
             description: "下午茶、午餐訂購"
         - 115年辦公日曆表:
-            icon: mdi-file-pdf-box
+            icon: mdi-calendar-month
             href: https://www.dgpa.gov.tw/information?uid=41&pid=12573
             description: "行政院人事行政總處"
   bookmarks.yaml: ""
