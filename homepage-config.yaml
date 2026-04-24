@@ -91,8 +91,8 @@ data:
         - VPN 設定教學 (PDF):
             icon: mdi-file-pdf-box
             href: "/downloads/vpn_client.pdf"
-			
-    - 常用外部連結: 
+            
+    - 常用外部連結:
         - Google 搜尋:
             icon: si-google
             href: https://www.google.com
@@ -104,5 +104,6 @@ data:
             icon: mdi-calendar-month
             href: https://www.dgpa.gov.tw/information?uid=41&pid=12573
             description: "行政院人事行政總處"
+
   bookmarks.yaml: ""
   custom.yaml: ""
