@@ -73,7 +73,7 @@ data:
               密碼: Bo-$$$168$$$
     
     - 工具與下載:
-        - 下載小提醒:
+        - 小提醒:
             icon: mdi-alert-circle-check-outline
             description: "💡 下載若被封鎖請點選「保留」"
         - FortiClient (Windows):
@@ -88,6 +88,18 @@ data:
         - GlobalProtect (MacOS):
             icon: mdi-apple
             href: "/downloads/gp-mac.pkg"
-
+            
+    - 常用外部連結: 
+        - Google 搜尋:
+            icon: si-google
+            href: https://www.google.com
+        - Uber Eats:
+            icon: mdi-food-delivery
+            href: https://www.ubereats.com
+            description: "下午茶、午餐訂購"
+        - 115年辦公日曆表:
+            icon: mdi-file-pdf-box
+            href: https://www.dgpa.gov.tw/information?uid=41&pid=12573
+            description: "行政院人事行政總處"
   bookmarks.yaml: ""
   custom.yaml: ""
