@@ -23,12 +23,15 @@ data:
         style: clock
         hour12: true
         format:
-          dateStyle: medium
-    - weather:
+          dateStyle: "full"   # 顯示：2026年4月24日 星期五
+          timeStyle: "medium" # 顯示：下午3:09:18
+    - openmeteo:
         label: "台中辦公室"
-        location: "Taichung, Taiwan"
+        latitude: 24.1620
+        longitude: 120.6395
+        timezone: "Asia/Taipei"
         units: metric
-        cache: 30
+        cache: 5
           
   services.yaml: |
     - 公司系統:
@@ -56,28 +59,25 @@ data:
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
             icon: mdi-office-building
-            # 使用 | 進行強制換行
-            description: |
+            # 使用 > 符號可以讓下方的換行被正確解析
+            description: >
               統編：97617207
               電話：04-22540279
         - 辦公室分機:
             icon: mdi-phone-classic
-            description: |
+            description: >
               HR Whitney #801
               MIS ZeYu #803
         - Wi-Fi 資訊 (HS):
             icon: mdi-wifi
-            # 加入 href copy 功能，點擊直接複製密碼
-            href: "copy:Hs-WiFi888"
-            description: |
+            description: >
               SSID: HS_new
-              密碼: Hs-WiFi888 (點擊複製)
+              密碼: Hs-WiFi888
         - Wi-Fi 資訊 (Meet):
             icon: mdi-wifi-lock
-            href: "copy:Bo-$$$168$$$"
-            description: |
+            description: >
               SSID: Meet_810
-              密碼: Bo-$$$168$$$ (點擊複製)
+              密碼: Bo-$$$168$$$
     
     - 工具與下載:
         - 今日小提醒:
