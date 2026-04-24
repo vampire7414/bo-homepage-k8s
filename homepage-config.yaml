@@ -5,7 +5,7 @@ metadata:
   namespace: homepage
 data:
   settings.yaml: |
-    title: 🌿 內網連結中心
+    title: 🌿 資訊服務入口
     theme: dark
     color: slate
     background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
@@ -18,29 +18,35 @@ data:
 
   widgets.yaml: |
     - greeting:
-        text: "哈囉！今天也是美好的一天。"
+        text: "各位同仁辛苦了，別忘了喝水休息一下！"
         help: true
     - datetime:
         style: clock
         hour12: true
         format:
           dateStyle: medium
-
+    - weather:
+        # 你可以根據公司所在縣市修改
+        label: "台北辦公室"
+        location: "Taipei, Taiwan"
+        units: metric
+        cache: 30
+        
   services.yaml: |
-    # --- 第一組：主要系統 (佔 2/4 寬度) ---
+    # --- 第一組：主要系統 ---
     - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
-            description: "考勤與請假"
+            description: "Nueip 簽到與請假"
         - 密碼修改:
             icon: mdi-shield-key-outline
             href: http://password.eagle.corp/iisadmpwd
-            description: "帳號安全管理"
+            description: "定期更換密碼保護帳號安全"
 
-    # --- 第二組：行事曆 (佔 1/4 寬度) ---
+    # --- 第二組：行事曆 ---
     - 行事曆:
-        - 月曆組件:
+        - 月曆:
             widget:
               type: calendar
               view: monthly
@@ -50,27 +56,46 @@ data:
                   url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
                   name: "台灣節慶"
                   color: "pink"
-
-    # --- 第三組：工具與 VPN 下載 (佔 1/4 寬度) ---
+    
+    # --- 第三組：公司資訊 ---
+    - 公司資訊與 Wi-Fi:
+        - 博悅基本資訊:
+            icon: mdi-office-building
+            description: |
+              統編：97617207
+              電話：04-22540279
+        - 辦公室分機:
+            icon: mdi-phone-classic
+            description: |
+              HR Whitney #801
+              MIS ZeYu #803
+        - Wi-Fi 資訊 (HS):
+            icon: mdi-wifi
+            description: "SSID: HS_new / PW: Hs-WiFi888"
+        - Wi-Fi 資訊 (Meet):
+            icon: mdi-wifi-lock
+            description: "SSID: Meet_810 / PW: Bo-$$$168$$$"
+    
+    # --- 第四組：工具與 VPN 下載 ---
     - 工具與下載:
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline
-            description: "💖 週五下午機房維護。"
+            description: "💖 週五放輕鬆。"
         - Google 搜尋:
             icon: si-google
             href: https://google.com
         
         # VPN 下載連結 (已對應簡化後的檔名)
-        - FortiClient (Windows):
+        - FortiClient (Win):
             icon: mdi-microsoft-windows
             href: "/downloads/forti-win.exe"
-        - FortiClient (MacOS):
+        - FortiClient (Mac):
             icon: mdi-apple
             href: "/downloads/forti-mac.dmg"
-        - GlobalProtect (Windows):
+        - GlobalProtect (Win):
             icon: mdi-microsoft-windows
             href: "/downloads/gp-win.msi"
-        - GlobalProtect (MacOS):
+        - GlobalProtect (Mac):
             icon: mdi-apple
             href: "/downloads/gp-mac.pkg"
 
