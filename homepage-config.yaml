@@ -61,16 +61,16 @@ data:
             href: https://google.com
         
         # VPN 下載連結 (已對應簡化後的檔名)
-        - FortiClient (Win):
+        - FortiClient (Windows):
             icon: mdi-microsoft-windows
             href: "/downloads/forti-win.exe"
-        - FortiClient (Mac):
+        - FortiClient (MacOS):
             icon: mdi-apple
             href: "/downloads/forti-mac.dmg"
-        - GlobalProtect (Win):
+        - GlobalProtect (Windows):
             icon: mdi-microsoft-windows
             href: "/downloads/gp-win.msi"
-        - GlobalProtect (Mac):
+        - GlobalProtect (MacOS):
             icon: mdi-apple
             href: "/downloads/gp-mac.pkg"
 
