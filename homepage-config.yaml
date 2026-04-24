@@ -11,7 +11,7 @@ data:
     background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
     cardBlur: md
     layout:
-      # 只留一個大容器，設定為 4 欄，這會讓 1/4 的組件看起來非常精緻
+      # 使用 4 欄位佈局，讓各組件比例協調
       主看板:
         style: row
         columns: 4
@@ -24,12 +24,11 @@ data:
         style: clock
         hour12: true
         format:
-          dateStyle: medium # 確保顯示為 Apr 23, 2026
+          dateStyle: medium
 
   services.yaml: |
-    # 按照順序，Homepage 會自動填滿 4 欄的空間
-    
-    - 公司系統: # 佔 2 欄 (左側主導地位)
+    # --- 第一組：主要系統 (佔 2/4 寬度) ---
+    - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
@@ -38,12 +37,9 @@ data:
             icon: mdi-shield-key-outline
             href: http://password.eagle.corp/iisadmpwd
             description: "帳號安全管理"
-        - VPN下載:
-            icon: mdi-laptop
-            href: "http://vpn.eagle.corp"
-            description: "遠端辦公工具"
 
-    - 行事曆: # 佔 1 欄 (中間輔助，絕不搶戲)
+    # --- 第二組：行事曆 (佔 1/4 寬度) ---
+    - 行事曆:
         - 月曆組件:
             widget:
               type: calendar
@@ -55,17 +51,28 @@ data:
                   name: "台灣節慶"
                   color: "pink"
 
-    - 資訊與工具: # 佔 1 欄 (右側收納)
-        - 歡迎詞:
-            icon: mdi-pine-tree
-            description: "☕ 深呼吸，放鬆心情。"
+    # --- 第三組：工具與 VPN 下載 (佔 1/4 寬度) ---
+    - 工具與下載:
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline
             description: "💖 週五下午機房維護。"
-        # 把 Google 縮小放在這裡，它就只是一個小按鈕，再也不會橫跨全螢幕！
         - Google 搜尋:
             icon: si-google
             href: https://google.com
-            description: "外部搜尋工具"
+        
+        # VPN 下載連結 (已對應簡化後的檔名)
+        - FortiClient (Win):
+            icon: mdi-microsoft-windows
+            href: "/downloads/forti-win.exe"
+        - FortiClient (Mac):
+            icon: mdi-apple
+            href: "/downloads/forti-mac.dmg"
+        - GlobalProtect (Win):
+            icon: mdi-microsoft-windows
+            href: "/downloads/gp-win.msi"
+        - GlobalProtect (Mac):
+            icon: mdi-apple
+            href: "/downloads/gp-mac.pkg"
 
-  bookmarks.yaml: "" # 徹底清空，避免產生多餘的標題列
+  bookmarks.yaml: ""
+  custom.yaml: ""

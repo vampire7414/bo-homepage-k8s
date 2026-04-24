@@ -11,7 +11,8 @@ spec:
   template:
     metadata:
       annotations:
-        config-hash: "v20" # 只要這行有變，ArgoCD 同步後就會自動重啟 Pod
+        # 修改為 version number 觸發 ArgoCD 更新以套用 PVC 掛載
+        config-hash: "v23" 
       labels:
         app: homepage
     spec:
@@ -25,7 +26,7 @@ spec:
         - name: HOMEPAGE_ALLOWED_HOSTS
           value: "*"
         volumeMounts:
-        # 使用 subPath 將檔案逐一映射到正確路徑，避免覆蓋整個 /app/config 目錄
+        # --- 設定檔掛載 (ConfigMap) ---
         - name: config-volume
           mountPath: /app/config/settings.yaml
           subPath: settings.yaml
@@ -41,12 +42,21 @@ spec:
         - name: config-volume
           mountPath: /app/config/custom.yaml
           subPath: custom.yaml
-        # 額外掛載 logs 目錄確保程式運作正常
         - name: logs-volume
           mountPath: /app/config/logs
+
+        # --- 安裝檔下載掛載 (PVC) ---
+        - name: iso-downloads
+          mountPath: /app/public/downloads
+
       volumes:
       - name: config-volume
         configMap:
           name: homepage-config
       - name: logs-volume
         emptyDir: {}
+
+      # --- 改用 PVC 替代 hostPath ---
+      - name: iso-downloads
+        persistentVolumeClaim:
+          claimName: homepage-downloads-pvc
