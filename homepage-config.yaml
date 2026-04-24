@@ -63,24 +63,17 @@ data:
             description: |
               統編：97617207
               電話：04-22540279
-        - 辦公室分機:
-            icon: mdi-phone-classic
-            description: |
-              HR Whitney #801
-              MIS ZeYu #803
         - Wi-Fi 資訊 (HS_new):
             icon: mdi-wifi
             description: |
-              SSID: HS_new
               密碼: Hs-WiFi888
-        - Wi-Fi 資訊 (Meet):
+        - Wi-Fi 資訊 (Meet_810):
             icon: mdi-wifi-lock
             description: |
-              SSID: Meet_810
               密碼: Bo-$$$168$$$
     
     - 工具與下載:
-        - 今日小提醒:
+        - 下載小提醒:
             icon: mdi-alert-circle-check-outline
             description: "💡 下載若被封鎖請點選「保留」"
         - FortiClient (Windows):
