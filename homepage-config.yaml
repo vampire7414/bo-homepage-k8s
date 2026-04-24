@@ -11,7 +11,6 @@ data:
     background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)"
     cardBlur: md
     layout:
-      # 使用 4 欄位佈局，讓各組件比例協調
       主看板:
         style: row
         columns: 4
@@ -19,21 +18,19 @@ data:
   widgets.yaml: |
     - greeting:
         text: "各位同仁辛苦了，別忘了喝水休息一下！"
-        help: true
+        help: false
     - datetime:
         style: clock
         hour12: true
         format:
           dateStyle: medium
     - weather:
-        # 你可以根據公司所在縣市修改
-        label: "台北辦公室"
-        location: "Taipei, Taiwan"
+        label: "台中辦公室"
+        location: "Taichung, Taiwan"
         units: metric
         cache: 30
-        
+          
   services.yaml: |
-    # --- 第一組：主要系統 ---
     - 公司系統:
         - 人事系統:
             icon: mdi-account-box-multiple
@@ -44,7 +41,6 @@ data:
             href: http://password.eagle.corp/iisadmpwd
             description: "定期更換密碼保護帳號安全"
 
-    # --- 第二組：行事曆 ---
     - 行事曆:
         - 月曆:
             widget:
@@ -57,10 +53,10 @@ data:
                   name: "台灣節慶"
                   color: "pink"
     
-    # --- 第三組：公司資訊 ---
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
             icon: mdi-office-building
+            # 使用 | 進行強制換行
             description: |
               統編：97617207
               電話：04-22540279
@@ -71,12 +67,18 @@ data:
               MIS ZeYu #803
         - Wi-Fi 資訊 (HS):
             icon: mdi-wifi
-            description: "SSID: HS_new / PW: Hs-WiFi888"
+            # 加入 href copy 功能，點擊直接複製密碼
+            href: "copy:Hs-WiFi888"
+            description: |
+              SSID: HS_new
+              密碼: Hs-WiFi888 (點擊複製)
         - Wi-Fi 資訊 (Meet):
             icon: mdi-wifi-lock
-            description: "SSID: Meet_810 / PW: Bo-$$$168$$$"
+            href: "copy:Bo-$$$168$$$"
+            description: |
+              SSID: Meet_810
+              密碼: Bo-$$$168$$$ (點擊複製)
     
-    # --- 第四組：工具與 VPN 下載 ---
     - 工具與下載:
         - 今日小提醒:
             icon: mdi-alert-circle-check-outline
@@ -84,8 +86,6 @@ data:
         - Google 搜尋:
             icon: si-google
             href: https://google.com
-        
-        # VPN 下載連結 (已對應簡化後的檔名)
         - FortiClient (Win):
             icon: mdi-microsoft-windows
             href: "/downloads/forti-win.exe"
