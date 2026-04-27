@@ -47,15 +47,14 @@ data:
         - 會議室預約狀況:
             widget:
               type: calendar
-              view: agenda    # 也可以改用 agenda 看清單
+              view: agenda
               firstDayInWeek: monday
               integrations:
                 - type: ical
-                  # 這邊換成你剛才找到的那串會議室 ical 網址
                   url: "https://calendar.google.com/calendar/ical/c_1886ihduqqvcchovioadaf6qaqnrm%40resource.calendar.google.com/public/basic.ics"
                   name: "NTC-8F 會議室"
                   color: "orange"
-				  
+
     - 行事曆:
         - 台灣節慶:
             widget:
@@ -68,7 +67,6 @@ data:
                   name: "台灣節慶"
                   color: "pink"
         
-    
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
             icon: mdi-office-building
