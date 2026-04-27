@@ -27,7 +27,7 @@ data:
           timeStyle: "short"
           hour12: true
     - openmeteo:
-        label: "台中辦公室"
+        label: "台中"
         latitude: 24.1620
         longitude: 120.6395
         timezone: "Asia/Taipei"
@@ -39,14 +39,14 @@ data:
         - 人事系統:
             icon: mdi-account-box-multiple
             href: https://portal.nueip.com/login
-            description: "Nueip 簽到與請假"
+            description: "Nueip 考勤與薪資查詢, 公司代碼97617207"
         - 密碼修改:
             icon: mdi-shield-key-outline
             href: http://password.eagle.corp/iisadmpwd
             description: "AD, NAS, VPN帳號密碼更新"
 
     - 行事曆:
-        - 月曆:
+        - 台灣節慶:
             widget:
               type: calendar
               view: monthly
@@ -56,6 +56,17 @@ data:
                   url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
                   name: "台灣節慶"
                   color: "pink"
+        - 會議室預約狀況:
+            widget:
+              type: calendar
+              view: agenda    # 也可以改用 agenda 看清單
+              firstDayInWeek: monday
+              integrations:
+                - type: ical
+                  # 這邊換成你剛才找到的那串會議室 ical 網址
+                  url: "https://calendar.google.com/calendar/ical/c_1886ihduqqvcchovioadaf6qaqnrm%40resource.calendar.google.com/public/basic.ics"
+                  name: "NTC-8F 會議室"
+                  color: "orange"
     
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
