@@ -48,6 +48,7 @@ data:
             widget:
               type: calendar
               view: agenda
+              showTime: true
               firstDayInWeek: monday
               integrations:
                 - type: ical
