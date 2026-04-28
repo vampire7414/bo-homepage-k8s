@@ -49,6 +49,7 @@ data:
               type: calendar
               view: agenda
               showTime: true
+              maxEvents: 13 # optional - defaults to 10
               firstDayInWeek: monday
               integrations:
                 - type: ical
@@ -61,7 +62,7 @@ data:
             widget:
               type: calendar
               view: monthly
-              firstDayInWeek: monday
+              firstDayInWeek: sunday
               integrations:
                 - type: ical
                   url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
