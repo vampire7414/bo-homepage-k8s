@@ -82,6 +82,13 @@ data:
             icon: mdi-wifi-lock
             description: |
               密碼: Bo-$$$168$$$
+        - 2025 尾牙精選花絮:
+            widget:
+              type: iframe
+              src: "http://homepage.eagle.corp/downloads/2025yearend/index.html"
+              classes: "h-60 sm:h-72 md:h-80 lg:h-96 xl:h-128" 
+              allowScrolling: no
+              refreshInterval: 0 # 我們 index.html 內建 JS 輪播，所以這裡不用重整    
     
     - 工具與下載:
         - 小提醒:
