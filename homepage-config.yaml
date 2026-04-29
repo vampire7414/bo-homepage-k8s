@@ -33,7 +33,7 @@ data:
         timezone: "Asia/Taipei"
         units: metric
         cache: 5
-          
+
   services.yaml: |
     - 公司系統:
         - 人事系統:
@@ -68,7 +68,7 @@ data:
                   url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
                   name: "台灣節慶"
                   color: "pink"
-        
+
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
             icon: mdi-office-building
@@ -89,8 +89,8 @@ data:
               src: "http://homepage.eagle.corp/downloads/2025yearend/index.html"
               classes: "h-48 sm:h-52 md:h-56 lg:h-60"
               allowScrolling: no
-              refreshInterval: 0 # 我們 index.html 內建 JS 輪播，所以這裡不用重整    
-    
+              refreshInterval: 0 # 我們 index.html 內建 JS 輪播，所以這裡不用重整
+
     - 工具與下載:
         - 小提醒:
             icon: mdi-alert-circle-check-outline
@@ -110,7 +110,14 @@ data:
         - VPN 設定教學 (PDF):
             icon: mdi-file-pdf-box
             href: "/downloads/vpn_client.pdf"
-            
+        - 辦公室座位圖:
+            widget:
+              type: iframe
+              src: "http://homepage.eagle.corp/downloads/seating/index.html"
+              classes: "h-48 sm:h-52 md:h-56 lg:h-60"
+              allowScrolling: no
+              refreshInterval: 0 # 靜態圖片不用重整
+
     - 常用外部連結:
         - Google 搜尋:
             icon: si-google
@@ -126,3 +133,4 @@ data:
 
   bookmarks.yaml: ""
   custom.yaml: ""
+
