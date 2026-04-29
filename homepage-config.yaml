@@ -110,11 +110,11 @@ data:
         - VPN 設定教學 (PDF):
             icon: mdi-file-pdf-box
             href: "/downloads/vpn_client.pdf"
-        - 辦公室座位圖:
+        - 辦公室座位圖(點擊看大圖):
             widget:
               type: iframe
               src: "http://homepage.eagle.corp/downloads/seating/index.html"
-              classes: "h-48 sm:h-52 md:h-56 lg:h-60"
+              classes: "h-32 sm:h-36 md:h-40 lg:h-44"
               allowScrolling: no
               refreshInterval: 0
 
