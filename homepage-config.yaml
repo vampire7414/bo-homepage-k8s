@@ -17,7 +17,7 @@ data:
 
   widgets.yaml: |
     - greeting:
-        text: "各位同仁辛苦了，別忘了喝水休息一下！"
+        text: "各位同仁辛苦了，51勞動節快樂!!"
         help: false
     - datetime:
         style: clock
@@ -49,7 +49,7 @@ data:
               type: calendar
               view: agenda
               showTime: true
-              maxEvents: 13 # optional - defaults to 10
+              maxEvents: 13
               firstDayInWeek: monday
               integrations:
                 - type: ical
@@ -89,7 +89,7 @@ data:
               src: "http://homepage.eagle.corp/downloads/2025yearend/index.html"
               classes: "h-48 sm:h-52 md:h-56 lg:h-60"
               allowScrolling: no
-              refreshInterval: 0 # 我們 index.html 內建 JS 輪播，所以這裡不用重整
+              refreshInterval: 0
 
     - 工具與下載:
         - 小提醒:
@@ -110,13 +110,13 @@ data:
         - VPN 設定教學 (PDF):
             icon: mdi-file-pdf-box
             href: "/downloads/vpn_client.pdf"
-        - 辦公室座位圖:
-            widget:
-              type: iframe
-              src: "http://homepage.eagle.corp/downloads/seating/index.html"
-              classes: "h-48 sm:h-52 md:h-56 lg:h-60"
-              allowScrolling: no
-              refreshInterval: 0 # 靜態圖片不用重整
+        - 辦公室座位圖:
+            widget:
+              type: iframe
+              src: "http://homepage.eagle.corp/downloads/seating/index.html"
+              classes: "h-48 sm:h-52 md:h-56 lg:h-60"
+              allowScrolling: no
+              refreshInterval: 0
 
     - 常用外部連結:
         - Google 搜尋:
@@ -133,4 +133,3 @@ data:
 
   bookmarks.yaml: ""
   custom.yaml: ""
-
