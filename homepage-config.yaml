@@ -77,7 +77,7 @@ data:
               text_size: md
               mappings:
                 name: name
-                # label: rank
+                label: rank
                 target: "{trailer}"
                 limit: 6
                 format: text
