@@ -57,7 +57,7 @@ data:
                   name: "NTC-8F 會議室"
                   color: "orange"
 
-    - 行事曆:
+    - 行事曆與當週票房:
         - 台灣節慶:
             widget:
               type: calendar
@@ -68,39 +68,56 @@ data:
                   url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
                   name: "台灣節慶"
                   color: "pink"
-        - 電影票房當週排行榜(點擊看預告片):
+        
+        # --- 電影排行榜拆解區 (點擊即可開啟預告) ---
+        - 🥇 TOP 1:
             widget:
               type: customapi
               url: http://10.8.128.111:5000/movies
-              refreshInterval: 3600000
-              method: GET
-              display: list
-              text_size: sm
               mappings:
                 - field: 0.name
-                  label: "🥇 TOP 1"
-                  format: text
-                  url: 0.trailer
+                - field: 0.trailer
+                  url: true
+        - 🥈 TOP 2:
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5000/movies
+              mappings:
                 - field: 1.name
-                  label: "🥈 TOP 2"
-                  format: text
-                  url: 1.trailer
+                - field: 1.trailer
+                  url: true
+        - 🥉 TOP 3:
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5000/movies
+              mappings:
                 - field: 2.name
-                  label: "🥉 TOP 3"
-                  format: text
-                  url: 2.trailer
+                - field: 2.trailer
+                  url: true
+        - 🎬 TOP 4:
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5000/movies
+              mappings:
                 - field: 3.name
-                  label: "🎬 TOP 4"
-                  format: text
-                  url: 3.trailer
+                - field: 3.trailer
+                  url: true
+        - 🎬 TOP 5:
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5000/movies
+              mappings:
                 - field: 4.name
-                  label: "🎬 TOP 5"
-                  format: text
-                  url: 4.trailer
+                - field: 4.trailer
+                  url: true
+        - 🎬 TOP 6:
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5000/movies
+              mappings:
                 - field: 5.name
-                  label: "🎬 TOP 6"
-                  format: text
-                  url: 5.trailer
+                - field: 5.trailer
+                  url: true
 
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
