@@ -80,33 +80,27 @@ data:
                 - field: 0.name
                   label: "🥇 TOP 1"
                   format: text
-                  href: 0.trailer
-                  container: true
+                  url: 0.trailer
                 - field: 1.name
                   label: "🥈 TOP 2"
                   format: text
-                  href: 1.trailer
-                  container: true
+                  url: 1.trailer
                 - field: 2.name
                   label: "🥉 TOP 3"
                   format: text
-                  href: 2.trailer
-                  container: true
+                  url: 2.trailer
                 - field: 3.name
                   label: "🎬 TOP 4"
                   format: text
-                  href: 3.trailer
-                  container: true
+                  url: 3.trailer
                 - field: 4.name
                   label: "🎬 TOP 5"
                   format: text
-                  href: 4.trailer
-                  container: true
+                  url: 4.trailer
                 - field: 5.name
                   label: "🎬 TOP 6"
                   format: text
-                  href: 5.trailer
-                  container: true
+                  url: 5.trailer
 
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
