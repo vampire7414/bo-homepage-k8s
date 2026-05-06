@@ -68,33 +68,30 @@ data:
                   url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
                   name: "台灣節慶"
                   color: "pink"
-        - 週末票房排行榜:
+        - 電影票房當週排行榜:
             widget:
               type: customapi
               url: http://10.8.128.111:5000/movies
+              refreshInterval: 3600000
+              method: GET
               display: list
               text_size: sm
               mappings:
-                - field: "[0].name"
+                - field: 0.name
                   label: "🥇"
-                - field: "[1].name"
+                  format: text
+                - field: 1.name
                   label: "🥈"
-                - field: "[2].name"
+                  format: text
+                - field: 2.name
                   label: "🥉"
-                - field: "[3].name"
+                  format: text
+                - field: 3.name
                   label: "4."
-                - field: "[4].name"
+                  format: text
+                - field: 4.name
                   label: "5."
-                - field: "[5].name"
-                  label: "6."
-                - field: "[6].name"
-                  label: "7."
-                - field: "[7].name"
-                  label: "8."
-                - field: "[8].name"
-                  label: "9."
-                - field: "[9].name"
-                  label: "10."
+                  format: text
 
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
