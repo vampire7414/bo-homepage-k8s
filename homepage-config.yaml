@@ -17,7 +17,7 @@ data:
 
   widgets.yaml: |
     - greeting:
-        text: "各位同仁辛苦了，適度休息，工作效率會更高喔！🚀"
+        text: "母親節將至，別忘了給媽媽一個擁抱！祝大家週末愉快。✨"
         help: false
     - datetime:
         style: clock
