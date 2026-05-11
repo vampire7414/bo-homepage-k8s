@@ -56,6 +56,18 @@ data:
                   url: "https://calendar.google.com/calendar/ical/c_1886ihduqqvcchovioadaf6qaqnrm%40resource.calendar.google.com/public/basic.ics"
                   name: "NTC-8F 會議室"
                   color: "orange"
+        - 🏖️ 2026 假期情報站:
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5001/holidays
+              refreshInterval: 43200000
+              method: GET
+              display: block
+              mappings:
+                - field: line1
+                  format: text
+                - field: line2
+                  format: text
 
     - 行事曆:
         - 台灣節慶:
@@ -103,20 +115,6 @@ data:
               classes: "h-48 sm:h-52 md:h-56 lg:h-60"
               allowScrolling: no
               refreshInterval: 0
-        - 🏖️ 2026 假期情報站:
-            widget:
-              type: customapi
-              url: http://10.8.128.111:5001/holidays
-              refreshInterval: 43200000     # 12 小時更新一次即可
-              method: GET
-              display: block                # 關鍵：不使用 list，改用 block 模式更美觀
-              mappings:
-                - field: holiday_name
-                  label: 📅 下個節日
-                  format: text
-                - field: holiday_status
-                  label: 🏃 當前狀態
-                  format: text
 
     - 工具與下載:
         - 小提醒:
