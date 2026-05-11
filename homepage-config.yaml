@@ -17,7 +17,7 @@ data:
 
   widgets.yaml: |
     - greeting:
-        text: "聽說陪媽媽過節也是體力活？辛苦了！今天就用最穩定的步調，找回工作的節奏感吧。🚀"
+        text: "各位同仁辛苦了，適度休息，工作效率會更高喔！🚀"
         help: false
     - datetime:
         style: clock
@@ -103,6 +103,20 @@ data:
               classes: "h-48 sm:h-52 md:h-56 lg:h-60"
               allowScrolling: no
               refreshInterval: 0
+        - 🏖️ 2026 假期情報站:
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5001/holidays
+              refreshInterval: 43200000     # 12 小時更新一次即可
+              method: GET
+              display: block                # 關鍵：不使用 list，改用 block 模式更美觀
+              mappings:
+                - field: holiday_name
+                  label: 📅 下個節日
+                  format: text
+                - field: holiday_status
+                  label: 🏃 當前狀態
+                  format: text
 
     - 工具與下載:
         - 小提醒:
