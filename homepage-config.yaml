@@ -49,7 +49,7 @@ data:
               type: calendar
               view: agenda
               showTime: true
-              maxEvents: 13
+              maxEvents: 10
               firstDayInWeek: monday
               integrations:
                 - type: ical
@@ -65,7 +65,8 @@ data:
               display: block
               mappings:
                 - field: line1
-                  label: line2
+                  format: text
+                - field: line2
                   format: text
 
     - 行事曆:
