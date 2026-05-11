@@ -65,8 +65,7 @@ data:
               display: block
               mappings:
                 - field: line1
-                  format: text
-                - field: line2
+                  label: line2
                   format: text
 
     - 行事曆:
