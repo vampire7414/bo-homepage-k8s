@@ -17,7 +17,7 @@ data:
 
   widgets.yaml: |
     - greeting:
-        text: "母親節將至，別忘了給媽媽一個擁抱！祝大家週末愉快。✨"
+        text: "聽說陪媽媽過節也是體力活？辛苦了！今天就用最穩定的步調，找回工作的節奏感吧。🚀"
         help: false
     - datetime:
         style: clock
