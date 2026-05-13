@@ -45,7 +45,8 @@ data:
             href: http://password.eagle.corp/iisadmpwd
             description: "AD, NAS, VPN帳號密碼更新"
         - 會議室預約狀況:
-            icon: sh-fluidcalendar.webp
+            icon: sh-meerkat-crm.webp
+            href: https://calendar.google.com/calendar/embed?src=c_1886ihduqqvcchovioadaf6qaqnrm%40resource.calendar.google.com
             widget:
               type: calendar
               view: agenda
@@ -73,6 +74,7 @@ data:
 
     - 行事曆:
         - 台灣節慶:
+            icon: sh-planning-center-calendar.webp
             widget:
               type: calendar
               view: monthly
