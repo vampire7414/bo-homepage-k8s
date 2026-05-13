@@ -96,19 +96,20 @@ data:
 
     - 公司資訊與 Wi-Fi:
         - 博悅基本資訊:
-            icon: mdi-office-building
+            icon: mdi-office-building-#ff80ab
             description: |
               統編：97617207
               電話：04-22540279
         - Wi-Fi 資訊 (HS_new):
-            icon: mdi-wifi
+            icon: mdi-wifi-#00e676
             description: |
               密碼: Hs-WiFi888
         - Wi-Fi 資訊 (Meet_810):
-            icon: mdi-wifi-lock
+            icon: mdi-wifi-#00e676
             description: |
               密碼: Bo-$$$168$$$
         - 2025 尾牙精選花絮:
+            icon: sh-fnos-photos.webp
             widget:
               type: iframe
               src: "http://homepage.eagle.corp/downloads/2025yearend/index.html"
@@ -118,24 +119,25 @@ data:
 
     - 工具與下載:
         - 小提醒:
-            icon: mdi-alert-circle-check-outline
+            icon: mdi-alert-circle-check-outline-#ffeb3b
             description: "💡 下載若被封鎖請點選「保留」"
         - FortiClient (Windows):
-            icon: mdi-microsoft-windows
+            icon: sh-microsoft-windows.webp
             href: "/downloads/forti-win.exe"
         - FortiClient (MacOS):
-            icon: mdi-apple
+            icon: sh-apple-retro.webp
             href: "/downloads/forti-mac.dmg"
         - GlobalProtect (Windows):
-            icon: mdi-microsoft-windows
+            icon: sh-microsoft-windows.webp
             href: "/downloads/gp-win.msi"
         - GlobalProtect (MacOS):
-            icon: mdi-apple
+            icon: sh-apple-retro.webp
             href: "/downloads/gp-mac.pkg"
         - VPN 設定教學 (PDF):
-            icon: mdi-file-pdf-box
+            icon: sh-adobe-acrobat.webp
             href: "/downloads/vpn_client.pdf"
         - 辦公室座位圖(點擊看大圖):
+            icon: sh-fnos-photos.webp
             widget:
               type: iframe
               src: "http://homepage.eagle.corp/downloads/seating/index.html"
@@ -145,16 +147,17 @@ data:
 
     - 常用外部連結:
         - Google 搜尋:
-            icon: si-google
+            icon: sh-google.webp
             href: https://www.google.com
         - Uber Eats:
-            icon: si-ubereats
+            icon: si-ubereats-#4caf50
             href: https://www.ubereats.com
             description: "下午茶、午餐訂購"
         - 115年辦公日曆表:
-            icon: mdi-calendar-month
+            icon: sh-fluidcalendar.webp
             href: https://www.dgpa.gov.tw/information?uid=41&pid=12573
             description: "行政院人事行政總處"
 
   bookmarks.yaml: ""
   custom.yaml: ""
+
