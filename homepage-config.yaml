@@ -37,14 +37,15 @@ data:
   services.yaml: |
     - 公司系統:
         - 人事系統:
-            icon: mdi-account-box-multiple
+            icon: mdi-account-box-multiple-#00bcd4
             href: https://portal.nueip.com/login
             description: "Nueip 考勤與薪資查詢, 公司代碼97617207"
         - 密碼修改:
-            icon: mdi-shield-key-outline
+            icon: mdi-shield-key-outline-#ffb300
             href: http://password.eagle.corp/iisadmpwd
             description: "AD, NAS, VPN帳號密碼更新"
         - 會議室預約狀況:
+            icon: sh-fluidcalendar.webp
             widget:
               type: calendar
               view: agenda
@@ -56,7 +57,8 @@ data:
                   url: "https://calendar.google.com/calendar/ical/c_1886ihduqqvcchovioadaf6qaqnrm%40resource.calendar.google.com/public/basic.ics"
                   name: "NTC-8F 會議室"
                   color: "orange"
-        - 🏖️ 2026 假期情報站:
+        - 2026 假期情報站:
+            icon: sh-nyt-spelling-bee.webp
             widget:
               type: customapi
               url: http://10.8.128.111:5001/holidays
@@ -80,7 +82,8 @@ data:
                   url: "https://calendar.google.com/calendar/ical/zh-tw.taiwan%23holiday%40group.v.calendar.google.com/public/basic.ics"
                   name: "台灣節慶"
                   color: "pink"
-        - 🎬 當週票房排行榜 (點擊片名看預告):
+        - 當週票房排行榜 (點擊片名看預告):
+            icon: si-themoviedatabase-#90cea1
             widget:
               type: customapi
               url: http://10.8.128.111:5000/movies
@@ -109,7 +112,7 @@ data:
             description: |
               密碼: Bo-$$$168$$$
         - 2025 尾牙精選花絮:
-            icon: sh-fnos-photos.webp
+            icon: sh-cardinal-photos.webp
             widget:
               type: iframe
               src: "http://homepage.eagle.corp/downloads/2025yearend/index.html"
