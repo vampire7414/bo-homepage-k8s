@@ -126,7 +126,7 @@ data:
             widget:
               type: iframe
               src: "http://homepage.eagle.corp/downloads/slots/index.html"
-              classes: "h-48"
+              classes: "h-24"
               allowScrolling: no
     - 工具與下載:
         - 小提醒:
