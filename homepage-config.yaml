@@ -36,6 +36,19 @@ data:
 
   services.yaml: |
     - 公司系統:
+        - 重要公告:
+            icon: mdi-bullhorn-variant-outline-#ff8a65
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5002/announcements
+              refreshInterval: 60000 # 1分鐘更新一次
+              method: GET
+              display: block
+              mappings:
+                - field: line1
+                  format: text
+                - field: line2
+                  format: text
         - 人事系統:
             icon: mdi-account-box-multiple-#00bcd4
             href: https://portal.nueip.com/login
@@ -51,7 +64,7 @@ data:
               type: calendar
               view: agenda
               showTime: true
-              maxEvents: 13
+              maxEvents: 10
               firstDayInWeek: monday
               integrations:
                 - type: ical
