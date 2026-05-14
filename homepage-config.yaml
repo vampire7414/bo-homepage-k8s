@@ -51,7 +51,7 @@ data:
               type: calendar
               view: agenda
               showTime: true
-              maxEvents: 11
+              maxEvents: 13
               firstDayInWeek: monday
               integrations:
                 - type: ical
@@ -96,7 +96,7 @@ data:
                 name: name
                 label: rank
                 target: "{trailer}"
-                limit: 6
+                limit: 8
                 format: text
 
     - 公司資訊與 Wi-Fi:
@@ -171,3 +171,4 @@ data:
 
   bookmarks.yaml: ""
   custom.yaml: ""
+
