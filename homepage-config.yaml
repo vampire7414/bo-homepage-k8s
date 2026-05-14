@@ -96,7 +96,7 @@ data:
                 name: name
                 label: rank
                 target: "{trailer}"
-                limit: 8
+                limit: 7
                 format: text
 
     - 公司資訊與 Wi-Fi:
