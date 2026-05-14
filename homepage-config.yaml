@@ -121,7 +121,13 @@ data:
               classes: "h-48 sm:h-52 md:h-56 lg:h-60"
               allowScrolling: no
               refreshInterval: 0
-
+        - 運維手氣拉霸機:
+            icon: mdi-slot-machine-#f59e0b
+            widget:
+              type: iframe
+              src: "http://homepage.eagle.corp/downloads/slots/index.html"
+              classes: "h-48"
+              allowScrolling: no
     - 工具與下載:
         - 小提醒:
             icon: mdi-alert-circle-check-outline-#ffeb3b
@@ -165,4 +171,3 @@ data:
 
   bookmarks.yaml: ""
   custom.yaml: ""
-
