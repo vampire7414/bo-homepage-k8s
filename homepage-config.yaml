@@ -64,7 +64,7 @@ data:
               type: calendar
               view: agenda
               showTime: true
-              maxEvents: 10
+              maxEvents: 11
               firstDayInWeek: monday
               integrations:
                 - type: ical
