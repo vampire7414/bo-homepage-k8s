@@ -71,19 +71,6 @@ data:
                   url: "https://calendar.google.com/calendar/ical/c_1886ihduqqvcchovioadaf6qaqnrm%40resource.calendar.google.com/public/basic.ics"
                   name: "NTC-8F 會議室"
                   color: "orange"
-        - 2026 假期情報站:
-            icon: sh-nyt-spelling-bee.webp
-            widget:
-              type: customapi
-              url: http://10.8.128.111:5001/holidays
-              refreshInterval: 43200000
-              method: GET
-              display: block
-              mappings:
-                - field: line1
-                  format: text
-                - field: line2
-                  format: text
 
     - 行事曆:
         - 台灣節慶:
@@ -165,10 +152,22 @@ data:
             widget:
               type: iframe
               src: "http://homepage.eagle.corp/downloads/seating/index.html"
-              classes: "h-32 sm:h-36 md:h-40 lg:h-44"
+              classes: "h-16 sm:h-20 md:h-24 lg:h-24"
               allowScrolling: no
               refreshInterval: 0
-
+        - 2026 假期情報站:
+            icon: sh-nyt-spelling-bee.webp
+            widget:
+              type: customapi
+              url: http://10.8.128.111:5001/holidays
+              refreshInterval: 43200000
+              method: GET
+              display: block
+              mappings:
+                - field: line1
+                  format: text
+                - field: line2
+                  format: text
     - 常用外部連結:
         - Google 搜尋:
             icon: sh-google.webp
