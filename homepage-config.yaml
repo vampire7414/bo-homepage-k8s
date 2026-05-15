@@ -36,19 +36,19 @@ data:
 
   services.yaml: |
     - 公司系統:
-        - 重要公告:
-            icon: mdi-bullhorn-variant-outline-#ff8a65
+        - 📢 NUEIP公告:
             widget:
               type: customapi
-              url: http://10.8.128.111:5002/announcements
-              refreshInterval: 60000 # 1分鐘更新一次
-              method: GET
-              display: block
+              url: http://10.8.128.111:5003/announcements
+              refreshInterval: 7200000
+              display: dynamic-list
+              text_size: xl
               mappings:
-                - field: line1
-                  format: text
-                - field: line2
-                  format: text
+                name: label      # 對應 "📢 【加班規則】"
+                label: value     # 對應 "點擊前往 nuEIP 查看"
+                target: "{link}" # 這裡要加括號確保路徑正確解析
+                limit: 5
+                format: text
         - 人事系統:
             icon: mdi-account-box-multiple-#00bcd4
             href: https://portal.nueip.com/login
