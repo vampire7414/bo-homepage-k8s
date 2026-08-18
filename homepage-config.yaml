@@ -96,10 +96,14 @@ data:
                 name: name
                 label: rank
                 target: "{trailer}"
-                limit: 7
+                limit: 10
                 format: text
 
     - 公司資訊與 Wi-Fi:
+        - 零食許願牆:
+            icon: mdi-cookiecutter-#f59e0b
+            href: http://wish-snack.eagle.corp
+            description: "大家快動動手指，上去開許願吧！"
         - 博悅基本資訊:
             icon: mdi-office-building-#ff80ab
             description: |
